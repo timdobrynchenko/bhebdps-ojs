@@ -8,3 +8,20 @@ textarea {
   border: 1px solid #e2e2e2;
   box-sizing: border-box;
 }
+
+.button-clear {
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-clear:hover {
+  background-color: darkred;
+}
+
+.button-clear:active {
+  background-color: maroon;
+}

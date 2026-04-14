@@ -44,3 +44,45 @@ function getTime() {
         console.log('таймер остановлен')
     }, 5000)
 }
+
+let lights = document.querySelectorAll('.light')
+let lightsArr = [...lights];
+let current = 0
+let timerId = setInterval (() => {
+    lightsArr[current].classList.remove('light_active')
+    current = (current + 1) % lightsArr.length;
+    lightsArr[current].classList.add('light_active')
+}, 2000)
+
+let btn = document.querySelector('.counter__add')
+let value = document.querySelector('.counter__value')
+let reset = document.querySelector('.counter__reset')
+btn.addEventListener('click', function(){
+    value.textContent = Number(value.textContent) + 1
+})
+reset.addEventListener('click', function(){
+    value.textContent = 0
+})
+
+let cards = document.querySelector('.cards')
+let hint = document.querySelector('.hint')
+cards.addEventListener('click', function(event) {
+    message = event.target.dataset.tip;
+    hint.textContent = message
+})
+
+let container = document.querySelector('.tabs')
+let tabBtns = document.querySelectorAll('.tabs__btn')
+let tabCntnt = document.querySelectorAll('.tab')
+container.addEventListener('click', function(event) {
+    tabBtns.forEach((item) => {
+        item.classList.remove('tabs__btn_active')
+    })
+    event.target.classList.add('tabs__btn_active')
+    let id = event.target.dataset.target
+    tabCntnt.forEach((item) => {
+        item.classList.remove('tab_active')
+    })
+    let activeTab = document.querySelector('#' + id)
+    activeTab.classList.add('tab_active')
+})
